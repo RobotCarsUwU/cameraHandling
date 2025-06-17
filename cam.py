@@ -21,15 +21,18 @@ camRgb.preview.link(xoutRgb.input)
 
 with dai.Device(pipeline) as dev:
     qRgb = dev.getOutputQueue("rgb", maxSize=4, blocking=False)
-    while True:
-        frame = qRgb.get().getCvFrame()
-        cv2.imshow("RGB Preview", frame)
-
-        key = cv2.waitKey(1)
-        if key == ord('s'):
-            cv2.imwrite("snapshot.png", frame)
-            print("saved in snapshot.png")
-        elif key == ord('q'):
-            break
+    frame = qRgb.get().getCvFrame()
+    cv2.imwrite("snapshot.png", frame)
+    print("saved in snapshot.png")
+    # while True:
+    #     frame = qRgb.get().getCvFrame()
+    #     cv2.imshow("RGB Preview", frame)
+    #
+    #     key = cv2.waitKey(1)
+    #     if key == ord('s'):
+    #         cv2.imwrite("snapshot.png", frame)
+    #         print("saved in snapshot.png")
+    #     elif key == ord('q'):
+    #         break
 
     cv2.destroyAllWindows()
