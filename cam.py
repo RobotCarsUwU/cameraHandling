@@ -35,4 +35,4 @@ with dai.Device(pipeline) as dev:
     #     elif key == ord('q'):
     #         break
 
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
